@@ -1,0 +1,37 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: erp_crm_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: erp_user
+      POSTGRES_PASSWORD: erp_password
+      POSTGRES_DB: erp_crm_portal
+    ports:
+      - "5432:5432"
+    volumes:
+      - erp_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U erp_user -d erp_crm_portal"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  api:
+    build: .
+    container_name: erp_crm_api
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    env_file:
+      - .env
+    environment:
+      DATABASE_URL: postgresql://erp_user:erp_password@postgres:5432/erp_crm_portal
+    ports:
+      - "4000:4000"
+
+volumes:
+  erp_pgdata:
