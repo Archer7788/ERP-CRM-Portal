@@ -8,6 +8,11 @@ S3 image upload and PDF invoice export.
 **Stack:** Node.js · TypeScript · Express.js · PostgreSQL · JWT · Zod · AWS S3 · PDFKit
 
 ---
+<img width="1024" height="637" alt="image" src="https://github.com/user-attachments/assets/e7c734ec-8612-4a0f-a41b-040d26e2121b" />
+<img width="1024" height="637" alt="image" src="https://github.com/user-attachments/assets/79d6dda5-294d-403c-ad28-dadec10947dd" />
+<img width="1024" height="637" alt="image" src="https://github.com/user-attachments/assets/2468bd2e-7cbe-4db9-a6de-e1b2a3192795" />
+<img width="1024" height="637" alt="image" src="https://github.com/user-attachments/assets/0209a640-c1d3-4451-8687-f9f222a95dc0" />
+
 
 ## Table of contents
 
